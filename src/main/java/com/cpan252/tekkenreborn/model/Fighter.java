@@ -17,9 +17,9 @@ public class Fighter {
     private Long id;
     @NotBlank
     private String name;
-    @Max(100)
+    @Max(60)
     private int damagePerHit;
-    @Min(1000)
+    @Min(900)
     private int health;
     @DecimalMin(value = "0.1", inclusive = true)
     @DecimalMax(value = "10.0", inclusive = true)

@@ -12,26 +12,22 @@ import com.cpan252.tekkenreborn.repository.FighterRepository;
 public class JdbcFighterRepository implements FighterRepository {
     private JdbcTemplate jdbcTemplate;
 
-    //JdbcTemplate is a bean provided by Spring
     public JdbcFighterRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public Iterable<Fighter> findAll() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Optional<Fighter> findById(Long id) {
-        // TODO Auto-generated method stub
         return Optional.empty();
     }
 
     @Override
     public Fighter save(Fighter fighter) {
-        // TODO Auto-generated method stub
         return null;
     }
     
