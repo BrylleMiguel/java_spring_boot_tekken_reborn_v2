@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXIST fighters ( id IDENTITY, name VARCHAR(30) NOT NULL, damage_per_hit INT NOT NULL, health INT NOT NULL, anime_from VARCHAR(30) NOT NULL, created_at VARCHAR(30) NOT NULL);

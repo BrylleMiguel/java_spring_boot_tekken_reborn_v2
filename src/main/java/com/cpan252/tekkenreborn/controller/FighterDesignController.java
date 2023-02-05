@@ -1,7 +1,10 @@
 package com.cpan252.tekkenreborn.controller;
+import com.cpan252.tekkenreborn.repository.impl.JdbcFighterRepository;
+
 
 import java.util.EnumSet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,27 +24,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 @RequestMapping("/design")
-@SessionAttributes("fighterPool")
 public class FighterDesignController {
+
+    @Autowired
+    private JdbcFighterRepository fighterRepository;
 
     @GetMapping
     public String design() {
         return "design";
     }
 
-    @ModelAttribute
-    public void animes(Model model) {
-        var animes = EnumSet.allOf(Anime.class);
-        model.addAttribute("animes", animes);
-        log.info("animes converted to string:  {}", animes);
-    }
-
- 
-
-    @ModelAttribute
-    public Fighter fighter() {
-        return Fighter
-                .builder()
-                .build();
+     @PostMapping
+    public String processFighterAddition(@Valid Fighter fighter, BindingResult result) {
+        if (result.hasErrors()) {
+            return "design";
+        }
+        log.info("Processing fighter: {}", fighter);
+        // !!!THIS IS GIVING ME ERROR
+        var id = fighterRepository.save(fighter);
+        log.info("Saved fighter with id: {}", id);
+        return "redirect:/design";
     }
 }

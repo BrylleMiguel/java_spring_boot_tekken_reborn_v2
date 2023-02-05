@@ -7,5 +7,5 @@ import com.cpan252.tekkenreborn.model.Fighter;
 public interface FighterRepository {
     Iterable<Fighter> findAll();
     Optional<Fighter> findById(Long id);
-    Fighter save(Fighter fighter);
+    void save(Fighter fighter);
 }
