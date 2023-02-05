@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.cpan252.tekkenreborn.model.Fighter;
-import com.cpan252.tekkenreborn.model.FighterPool;
 import com.cpan252.tekkenreborn.model.Fighter.Anime;
 
 import jakarta.validation.Valid;
@@ -37,10 +36,7 @@ public class FighterDesignController {
         log.info("animes converted to string:  {}", animes);
     }
 
-    @ModelAttribute(name = "fighterPool")
-    public FighterPool fighterPool() {
-        return new FighterPool();
-    }
+ 
 
     @ModelAttribute
     public Fighter fighter() {
@@ -48,15 +44,4 @@ public class FighterDesignController {
                 .builder()
                 .build();
     }
-
-    @PostMapping
-    public String processFighterAddition(@Valid Fighter fighter,
-            @ModelAttribute FighterPool pool, BindingResult result) {
-        if (result.hasErrors()) {
-            return "design";
-        }
-        pool.add(fighter);
-        return "redirect:/design";
-    }
-
 }
