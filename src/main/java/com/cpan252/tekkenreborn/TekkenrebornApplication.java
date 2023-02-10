@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationContext;
 
 import com.cpan252.tekkenreborn.controller.HomeController;
 
-
 @SpringBootApplication
 public class TekkenrebornApplication {
 
@@ -14,5 +13,4 @@ public class TekkenrebornApplication {
 		ApplicationContext context = SpringApplication.run(TekkenrebornApplication.class, args);
 		HomeController controller = context.getBean(HomeController.class);
 	}
-
 }
