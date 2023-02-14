@@ -27,20 +27,6 @@ public class FighterDesignController {
     @Autowired
     private FighterRepository fighterRepository;
 
-    @ModelAttribute
-    public void animes(Model model) {
-        var animes = EnumSet.allOf(Anime.class);
-        model.addAttribute("animes", animes);
-        log.info("animes converted to string:  {}", animes);
-    }
-
-    @ModelAttribute
-    public Fighter fighter() {
-        return Fighter
-                .builder()
-                .build();
-    }
-
     @GetMapping
     public String design() {
         return "design";
@@ -54,5 +40,19 @@ public class FighterDesignController {
         log.info("Processing fighter: {}", fighter);
         fighterRepository.save(fighter);
         return "redirect:/design";
+    }
+
+    @ModelAttribute
+    public void animes(Model model) {
+        var animes = EnumSet.allOf(Anime.class);
+        model.addAttribute("animes", animes);
+        log.info("animes converted to string:  {}", animes);
+    }
+
+    @ModelAttribute
+    public Fighter fighter() {
+        return Fighter
+                .builder()
+                .build();
     }
 }

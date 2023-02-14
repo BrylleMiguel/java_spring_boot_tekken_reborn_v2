@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS fighter (
     health INT NOT NULL,
     resistance DOUBLE NOT NULL,
     anime_from VARCHAR(30) NOT NULL,
-    created_at VARCHAR(30) NOT NULL
+    created_at DATETIME NOT NULL
 );
 
 -- create table if not exists fighter (

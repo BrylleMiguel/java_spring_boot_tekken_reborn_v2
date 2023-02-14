@@ -1,6 +1,7 @@
 package com.cpan252.tekkenreborn.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -30,8 +31,8 @@ public class Fighter {
     @DecimalMax(value = "10.0", inclusive = true)
     private BigDecimal resistance;
     private Anime animeFrom;
-
-    private final Date createdAt = new Date();
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public enum Anime {
         NARUTO("Naruto"), BLEACH("Bleach"), ONE_PIECE("One Piece"), TEKKEN("Tekken");
