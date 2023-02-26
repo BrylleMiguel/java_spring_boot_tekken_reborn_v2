@@ -2,9 +2,8 @@ package com.cpan252.tekkenreborn.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
+
 import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.validation.constraints.DecimalMax;
