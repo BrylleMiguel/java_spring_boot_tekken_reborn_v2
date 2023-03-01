@@ -6,7 +6,6 @@ import java.util.EnumSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -39,14 +38,14 @@ public class FighterDesignController {
         }
         log.info("Processing fighter: {}", fighter);
         fighterRepository.save(fighter);
-        return "redirect:/design";
+        return "redirect:/fighter_list";
     }
 
-    @ModelAttribute
-    public void animes(Model model) {
+    @ModelAttribute("animes")
+    public EnumSet<Anime> animes() {
         var animes = EnumSet.allOf(Anime.class);
-        model.addAttribute("animes", animes);
         log.info("animes converted to string:  {}", animes);
+        return animes;
     }
 
     @ModelAttribute

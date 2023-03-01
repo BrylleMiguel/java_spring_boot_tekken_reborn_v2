@@ -1,12 +1,18 @@
 package com.cpan252.tekkenreborn.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cpan252.tekkenreborn.model.Fighter;
+import com.cpan252.tekkenreborn.model.dto.FighterSearchByDateDTO;
 import com.cpan252.tekkenreborn.repository.FighterRepository;
 
 @Controller
@@ -28,13 +34,31 @@ public class FighterListController {
     @Autowired
     private FighterRepository fighterRepository;
 
+    @ModelAttribute()
+    public void fighterSearchByDateDTO(Model model) {
+        model.addAttribute("fighterSearchByDateDTO", new FighterSearchByDateDTO());
+    }
+
+    @ModelAttribute("fighters")
+    public Iterable<Fighter> fighters() {
+        return fighterRepository.findAll();
+    }
+
     @GetMapping
     public String getFighterList() {
         return "fighter_list";
     }
 
-    @ModelAttribute
-    public void getFighterList(Model model) {
-        model.addAttribute("fighters", fighterRepository.findAll());
+    @PostMapping
+    public String searchFighterNameStartsWithAndCreatedAtBetween(
+            @ModelAttribute FighterSearchByDateDTO fighterSearchByDateDTO, Model model) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        model.addAttribute("fighters",
+                fighterRepository.findByNameStartsWithAndCreatedAtBetween(fighterSearchByDateDTO.getName(),
+                        LocalDate.parse(fighterSearchByDateDTO.getStartDate(), dateFormatter),
+                        LocalDate.parse(fighterSearchByDateDTO.getEndDate(), dateFormatter)));
+
+        return "fighter_list";
     }
+
 }

@@ -25,14 +25,14 @@ public class TekkenrebornApplication {
 			fighterRepository.save(Fighter.builder()
 					.name("Monkey D. Luffy")
 					.animeFrom(Anime.ONE_PIECE)
-					.damagePerHit(89)
+					.damagePerHit(57)
 					.health(1500)
 					.resistance(BigDecimal.valueOf(9.9)).build());
 
 			fighterRepository.save(Fighter.builder()
 					.name("Naruto Uzumaki")
 					.animeFrom(Anime.NARUTO)
-					.damagePerHit(86)
+					.damagePerHit(61)
 					.health(1750)
 					.resistance(BigDecimal.valueOf(9.8)).build());
 		};

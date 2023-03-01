@@ -14,6 +14,12 @@
     </head>
     <body class="container-sm">
         <h1 class="text-center mt-5">Fighter List</h1>
+        <form method="POST" th:object="${fighterSearchByDateDTO}">
+            <input type="text" th:field="*{name}" id="name" />
+            <input type="date" th:field="*{startDate}" id="startDate" />
+            <input type="date" th:field="*{endDate}" id="endDate`" />
+            <button>search</button>
+        </form>
         <div th:each="fighter : ${fighters}" class="container-sm">
             <div class="d-flex flex-column">
                 <code th:text="|date created: ${fighter.createdAt}|"></code>
