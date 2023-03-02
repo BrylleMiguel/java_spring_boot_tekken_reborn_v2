@@ -35,6 +35,62 @@ public class TekkenrebornApplication {
 					.damagePerHit(61)
 					.health(1750)
 					.resistance(BigDecimal.valueOf(9.8)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Roronoa Zoro")
+					.animeFrom(Anime.ONE_PIECE)
+					.damagePerHit(57)
+					.health(1500)
+					.resistance(BigDecimal.valueOf(9.9)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Sasuke Uchiha")
+					.animeFrom(Anime.NARUTO)
+					.damagePerHit(61)
+					.health(1750)
+					.resistance(BigDecimal.valueOf(9.8)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Vinsmoke Sanji")
+					.animeFrom(Anime.ONE_PIECE)
+					.damagePerHit(57)
+					.health(1500)
+					.resistance(BigDecimal.valueOf(9.9)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Sakura Haruno")
+					.animeFrom(Anime.NARUTO)
+					.damagePerHit(61)
+					.health(1750)
+					.resistance(BigDecimal.valueOf(9.8)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Nami Bellmere")
+					.animeFrom(Anime.ONE_PIECE)
+					.damagePerHit(57)
+					.health(1500)
+					.resistance(BigDecimal.valueOf(9.9)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Kakashi Hatake")
+					.animeFrom(Anime.NARUTO)
+					.damagePerHit(61)
+					.health(1750)
+					.resistance(BigDecimal.valueOf(9.8)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("God Ussop")
+					.animeFrom(Anime.ONE_PIECE)
+					.damagePerHit(57)
+					.health(1500)
+					.resistance(BigDecimal.valueOf(9.9)).build());
+
+			fighterRepository.save(Fighter.builder()
+					.name("Jiraiya of the Sannin")
+					.animeFrom(Anime.NARUTO)
+					.damagePerHit(61)
+					.health(1750)
+					.resistance(BigDecimal.valueOf(9.8)).build());
 		};
 	}
 }
